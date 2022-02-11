@@ -1,0 +1,21 @@
+<% if user_signed_in? %>
+  <h1>Friends</h1>
+
+  <div id="friends">
+    <table class="table table-striped table-hover table-bordered">
+    <% @friends.each do |friend| %>
+      <% if friend.user == current_user%>
+        <%= render friend %>
+      <% end %>
+    <% end %>
+    </table>
+</div>
+
+<%= link_to "New friend", new_friend_path, class:"btn btn-primary" %>
+
+<% else %>
+  <h1>Home#index</h1>
+  <p>Find me in app/views/home/index.html.erb</p>
+
+<% end %>>
+
